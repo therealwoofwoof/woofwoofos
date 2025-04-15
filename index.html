@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WoofwoofOS</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-color: black;
+            color: white;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+    </style>
+</head>
+<body>
+    <img src="Ginger/IMG_0744.JPG" width="260" height="200" alt="Ginger">
+    <h1>WoofwoofOS</h1>
+    <p>Press DEL to enter Setup</p>
+
+    <script>
+        const bootTimeout = setTimeout(() => {
+            window.location.href = '/woofwoofos-main.html';
+        }, 5000);
+
+        document.addEventListener('keydown', (event) => {
+            if (event.key === 'Delete') {
+                clearTimeout(bootTimeout);
+                window.location.href = '/setup.html';
+            }
+        });
+    </script>
+</body>
+</html>
