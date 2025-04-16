@@ -23,16 +23,8 @@
     <p>WoofwoofOS is Starting...</p>
 
     <script>
-        const bootTimeout = setTimeout(() => {
             window.location.href = '/woofwoofos-main.html';
         }, 3000);
-
-        document.addEventListener('keydown', (event) => {
-            if (event.key === 'Delete') {
-                clearTimeout(bootTimeout);
-                window.location.href = '/setup.html';
-            }
-        });
     </script>
 </body>
 </html>
