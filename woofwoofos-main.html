@@ -85,6 +85,11 @@
         border-radius: 10px;
     }
 
+    #dock button img {
+        width: 30px;
+        height: 30px;
+    }
+
     #menu-bar button {
         background-color: #555;
         border: none;
@@ -95,8 +100,7 @@
 </head>
 <body>
     <div id="menu-bar">
-        <button onclick="alert('WoofwoofOS version 1.0.0');">About</button>
-        <button onclick="window.location.href = '/index.html';">Restart</button>
+        <button onclick="window.location.href = '/';">Restart</button>
     </div>
 
     <div id="app-window">
@@ -105,12 +109,12 @@
     </div>
 
     <div id="dock">
-        <button onclick="alert('You got Woofed!');">App</button>
+        <button onclick="alert('You got Woofed!'); window.location.href = '/error.html';">Woofed</button>
         <button id="woofvm">WoofVM</button>
 
         <script>
             document.getElementById('woofvm').onclick = () => {
-                document.getElementById('app-frame').src = '/index.html';
+                document.getElementById('app-frame').src = '/';
                 document.getElementById('app-window').style.display = 'block';
             };
         </script>
