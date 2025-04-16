@@ -11,6 +11,56 @@
         background-repeat: no-repeat;
         background-attachment: fixed;
         color: lime;
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+    }
+
+    #menu-bar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        background-color: #333;
+        color: white;
+        height: 40px;
+        display: flex;
+        z-index: 10;
+    }
+
+    #app-window {
+        flex: 1;
+        margin-top: 40px;
+        margin-bottom: 80px;
+        overflow: auto;
+        position: relative;
+        background-color: rgba(0, 0, 0, 0.8);
+        color: white;
+        border-radius: 10px;
+        padding: 10px;
+        box-sizing: border-box;
+        display: none;
+    }
+
+    #app-window iframe {
+        width: 100%;
+        height: 100%;
+        border: none;
+    }
+
+    #close-button {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: #555;
+        border: none;
+        color: white;
+        padding: 5px 10px;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 14px;
     }
 
     #dock {
@@ -23,10 +73,11 @@
         border-radius: 20px;
         display: flex;
         gap: 20px;
+        z-index: 10;
     }
 
     #dock button {
-        background-color: transparent;
+        background-color: #555;
         border: none;
         cursor: pointer;
         padding: 15px;
@@ -34,18 +85,8 @@
         border-radius: 10px;
     }
 
-    #menu-bar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #333;
-        color: white;
-        height: 40px;
-        display: flex;
-    }
     #menu-bar button {
-        background-color: transparent;
+        background-color: #555;
         border: none;
         cursor: pointer;
         color: white;
@@ -55,11 +96,24 @@
 <body>
     <div id="menu-bar">
         <button onclick="alert('WoofwoofOS version 1.0.0');">About</button>
-        <button onclick="window.location.href = '/shutdown.html';">Shut Down</button>
         <button onclick="window.location.href = '/index.html';">Restart</button>
     </div>
+
+    <div id="app-window">
+        <button id="close-button" onclick="document.getElementById('app-window').style.display='none';">Close</button>
+        <iframe src="" id="app-frame"></iframe>
+    </div>
+
     <div id="dock">
-        <button>Dog</button>
+        <button onclick="alert('You got Woofed!');">App</button>
+        <button id="woofvm">WoofVM</button>
+
+        <script>
+            document.getElementById('woofvm').onclick = () => {
+                document.getElementById('app-frame').src = '/index.html';
+                document.getElementById('app-window').style.display = 'block';
+            };
+        </script>
     </div>
 </body>
 </html>
