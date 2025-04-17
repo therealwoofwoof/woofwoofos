@@ -5,7 +5,7 @@
     <style>
     body {
         font-family: Arial, Helvetica, sans-serif;
-        background-image: url('/IMG_0744.JPG');
+        background-image: url('/Ginger/IMG_0744.JPG');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -71,11 +71,6 @@
         color: white;
         border-radius: 10px;
     }
-
-    #dock button img {
-        width: 30px;
-        height: 30px;
-    }
     </style>
 </head>
 <body>
@@ -86,13 +81,19 @@
 
     <div id="dock">
         <button id="woofvm">WoofVM</button>
-        
+        <button id="ginger">Ginger</button>
+
         <script>
             const appWindow = document.getElementById('app-window');
             const appFrame = document.getElementById('app-frame');
 
-            document.getElementById('woofvm').onclick = function() {
+            document.getElementById('woofvm').onclick = () => {
                 appFrame.src = '/index.html';
+                appWindow.style.display = 'block';
+            };
+
+            document.getElementById('ginger').onclick = () => {
+                appFrame.src = '/ginger.html';
                 appWindow.style.display = 'block';
             };
         </script>
