@@ -5,7 +5,7 @@
     <style>
     body {
         font-family: Arial, Helvetica, sans-serif;
-        background-image: url('/IMG_0744.JPG');
+        background-image: url('Ginger/IMG_0744.JPG');
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -16,18 +16,6 @@
         height: 100vh;
         display: flex;
         flex-direction: column;
-    }
-
-    #menu-bar {
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        background-color: #333;
-        color: white;
-        height: 40px;
-        display: flex;
-        z-index: 10;
     }
 
     #app-window {
@@ -89,20 +77,9 @@
         width: 30px;
         height: 30px;
     }
-
-    #menu-bar button {
-        background-color: #555;
-        border: none;
-        cursor: pointer;
-        color: white;
-    }
     </style>
 </head>
 <body>
-    <div id="menu-bar">
-        <button onclick="window.location.href = '/';">Restart</button>
-    </div>
-
     <div id="app-window">
         <button id="close-button" onclick="document.getElementById('app-window').style.display='none';">Close</button>
         <iframe src="" id="app-frame"></iframe>
@@ -110,11 +87,20 @@
 
     <div id="dock">
         <button id="woofvm">WoofVM</button>
+        <button id="power">Power</button>
 
         <script>
-            document.getElementById('woofvm').onclick = () => {
-                document.getElementById('app-frame').src = '/';
-                document.getElementById('app-window').style.display = 'block';
+            const appWindow = document.getElementById('app-window');
+            const appFrame = document.getElementById('app-frame');
+
+            document.getElementById('woofvm').onclick = function() {
+                appFrame.src = '/index.html';
+                appWindow.style.display = 'block';
+            };
+
+            document.getElementById('power').onclick = function() {
+                appFrame.src = '/power.html';
+                appWindow.style.display = 'block';
             };
         </script>
     </div>
