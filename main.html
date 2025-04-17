@@ -87,19 +87,13 @@
 
     <div id="dock">
         <button id="woofvm">WoofVM</button>
-        <button id="power">Power</button>
-
+        
         <script>
             const appWindow = document.getElementById('app-window');
             const appFrame = document.getElementById('app-frame');
 
             document.getElementById('woofvm').onclick = function() {
                 appFrame.src = '/index.html';
-                appWindow.style.display = 'block';
-            };
-
-            document.getElementById('power').onclick = function() {
-                appFrame.src = '/power.html';
                 appWindow.style.display = 'block';
             };
         </script>
