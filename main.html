@@ -5,10 +5,9 @@
     <style>
     body {
         font-family: Arial, Helvetica, sans-serif;
-        background-image: url('/Ginger/IMG_0744.JPG');
+        background-image: url('Ginger/IMG_0744.JPG');
         background-size: cover;
         background-position: center;
-        background-repeat: no-repeat;
         background-attachment: fixed;
         color: lime;
         margin: 0;
@@ -50,7 +49,7 @@
         font-size: 14px;
     }
 
-    #dock {
+    #panel {
         position: fixed;
         bottom: 0;
         left: 50%;
@@ -58,12 +57,12 @@
         background-color: #333;
         padding: 20px 40px;
         border-radius: 20px;
-        display: flex;
         gap: 20px;
         z-index: 10;
+        display: flex;
     }
 
-    #dock button {
+    #panel button {
         background-color: #555;
         border: none;
         cursor: pointer;
@@ -79,7 +78,7 @@
         <iframe src="" id="app-frame"></iframe>
     </div>
 
-    <div id="dock">
+    <div id="panel">
         <button id="woofvm">WoofVM</button>
         <button id="ginger">Ginger</button>
 
