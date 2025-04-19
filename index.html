@@ -25,12 +25,21 @@
 <body>
     <img src="Ginger/IMG_0744.JPG" alt="Ginger">
     <h1>WoofwoofOS</h1>
-    <p>WoofwoofOS is Starting...</p>
+    <p id="bootmsg">WoofwoofOS is Starting</p>
 
     <script>
         setTimeout(() => {
             window.location.href = 'main.html';
         }, 5000);
+
+        const bootmsg = document.getElementById('bootmsg');
+        setInterval(() => {
+            bootmsg.innerText += '.';
+
+            if (bootmsg.innerText.length > 25) {
+                bootmsg.innerText = 'WoofwoofOS is Starting';
+            }
+        }, 500)
     </script>
 </body>
 </html>
