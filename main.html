@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WoofwoofOS</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            background-image: url('Ginger/IMG_0744.JPG');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: lime;
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        #app-window {
+            flex: 1;
+            margin-bottom: 80px;
+            overflow: auto;
+            position: relative;
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            border-radius: 10px;
+            padding: 10px;
+            box-sizing: border-box;
+            display: none;
+        }
+
+        #app-window iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        #close-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #555;
+            border: none;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #panel {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: #333;
+            padding: 20px 40px;
+            border-radius: 20px;
+            gap: 20px;
+            z-index: 10;
+            display: flex;
+        }
+
+        #panel button {
+            background-color: #555;
+            border: none;
+            cursor: pointer;
+            padding: 15px;
+            color: white;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="app-window">
+        <button id="close-button" onclick="appWindow.style.display='none';">Close</button>
+        <iframe id="app-frame"></iframe>
+    </div>
+
+    <div id="panel">
+        <button data-url="Ginger/index.html">Ginger Pictures</button>
+    </div>
+
+    <script>
+        const appWindow = document.getElementById('app-window');
+        const appFrame = document.getElementById('app-frame');
+        const panelButtons = document.querySelectorAll('#panel button');
+
+        panelButtons.forEach(button => {
+        button.addEventListener('click', () => {
+            appFrame.src = button.getAttribute('data-url');
+            appWindow.style.display = 'block';
+        });
+    });
+    </script>
+</body>
+</html>
