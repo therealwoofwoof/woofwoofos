@@ -79,18 +79,21 @@
     </div>
 
     <div id="panel">
-        <button onclick="app()" data-url="Ginger/index.html">Ginger Pictures</button>
-        <button onclick="app()" data-url="textspeak.html">Text Reader</button>
+        <button class="app" data-url="Ginger/index.html">Ginger Pictures</button>
+        <button class="app" data-url="textspeak.html">Text Reader</button>
     </div>
 
     <script>
         const appWindow = document.getElementById('app-window');
         const appFrame = document.getElementById('app-frame');
+        const buttons = document.querySelectorAll('.app');
 
-        function app() {
-            appFrame.src = button.getAttribute('data-url');
-            appWindow.style.display = 'block';
-        }
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                appFrame.src = button.getAttribute('data-url');
+                appWindow.style.display = 'block';
+            });
+        });
     </script>
 </body>
 </html>
