@@ -97,7 +97,7 @@
         });
 
         function waf() {
-            alert('You got Woofed');
+            alert('You got Woofed! Reload page to stop.');
             const waf = new SpeechSynthesisUtterance("You got Woofed");
             
             const sound = new Audio('waf.mp3');
@@ -107,6 +107,9 @@
             setInterval(() => {
                 window.speechSynthesis.speak(waf);
             }, 500);
+
+            document.body.innerHTML = "<h1 style="text-align: center; color: lime;">You got Woofed!</h1>";
+
         }
     </script>
 </body>
