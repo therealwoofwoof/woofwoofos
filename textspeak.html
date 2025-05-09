@@ -25,7 +25,6 @@
         document.getElementById('readButton').addEventListener('click', function() {
             const text = document.getElementById('textArea').value;
             const speech = new SpeechSynthesisUtterance(text);
-            speech.lang = 'en-US';
             window.speechSynthesis.speak(speech);
         });
     </script>
