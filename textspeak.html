@@ -23,7 +23,15 @@
 
     <script>
         document.getElementById('readButton').addEventListener('click', function() {
+            if (window.speechSynthesis.speaking) {
+                alert('Speech is already playing. Please wait until it finishes.');
+                return;
+            }
             const text = document.getElementById('textArea').value;
+            if (text.trim() === '') {
+                alert('Please enter some text to read.');
+                return;
+            }
             const speech = new SpeechSynthesisUtterance(text);
             window.speechSynthesis.speak(speech);
         });
