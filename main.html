@@ -15,11 +15,12 @@
             height: 100vh;
             display: flex;
             flex-direction: column;
+            margin: 0;
         }
 
         #app-window {
             flex: 1;
-            margin-bottom: 80px;
+            margin-bottom: 57px;
             overflow: auto;
             position: relative;
             background-color: rgba(0, 0, 0, 0.8);
@@ -52,23 +53,27 @@
         #panel {
             position: fixed;
             bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
+            left: 0;
+            width: 100%;
             background-color: #333;
-            padding: 20px 40px;
-            border-radius: 20px;
-            gap: 20px;
-            z-index: 10;
+            padding: 10px 20px;
             display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            gap: 10px;
         }
 
         #panel button {
             background-color: #555;
             border: none;
             cursor: pointer;
-            padding: 15px;
+            padding: 10px 20px;
             color: white;
-            border-radius: 10px;
+            border-radius: 5px;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
         }
     </style>
 </head>
@@ -81,7 +86,7 @@
     <div id="panel">
         <button class="app" data-url="Ginger/index.html">Ginger Pictures</button>
         <button class="app" data-url="apps/imageviewer.html">Image Viewer</button>
-        <button class="app" data-url="apps/videoplayer.html">Vider Player</button>
+        <button class="app" data-url="apps/videoplayer.html">Video Player</button>
     </div>
 
     <script>
