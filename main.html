@@ -81,7 +81,6 @@
     <div id="panel">
         <button class="app" data-url="Ginger/index.html">Ginger Pictures</button>
         <button class="app" data-url="textspeak.html">Text Reader</button>
-        <button onclick="waf()">Waf</button>
     </div>
 
     <script>
@@ -95,22 +94,6 @@
                 appWindow.style.display = 'block';
             });
         });
-
-        function waf() {
-            alert('You got Woofed! Reload page to stop.');
-            const waf = new SpeechSynthesisUtterance("You got Woofed");
-            
-            const sound = new Audio('waf.mp3');
-            sound.loop = true;
-            sound.play();
-
-            setInterval(() => {
-                window.speechSynthesis.speak(waf);
-            }, 500);
-
-            document.body.innerHTML = '<h1 style="text-align: center; color: lime;">You got Woofed!</h1>';
-
-        }
     </script>
 </body>
 </html>
