@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Terminal</title>
+    <style>
+        body {
+            font-family: monospace;
+            background-color: #333;
+            color: white;
+            margin-top: 0;
+        }
+
+        #jsterminal {
+            width: 100%;
+            height: 100vh;
+            background-color: #222;
+            color: white;
+            border: none;
+            padding: 10px;
+            font-size: 16px;
+            overflow-y: auto;
+        }
+    </style>
+</head>
+<body>
+    <textarea id="jsterminal">woofwoofos@woofwoofos $ </textarea>
+    <script>
+        document.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter') {
+                event.preventDefault();
+                const terminal = document.getElementById('jsterminal');
+                let lines = terminal.value.split('\n');
+                const command = lines[lines.length - 1].replace("woofwoofos@woofwoofos $ ", "").trim();
+
+                // Builtin Commands
+                switch (command) {
+                    case 'clear':
+                        clear();
+                        return;
+                    case 'exit':
+                        terminal.value += '\nExit\n';
+                        document.removeEventListener('keydown', arguments.callee);
+                        terminal.readOnly = true;
+                        return;
+                    case 'help':
+                        terminal.value += '\nAvailable commands:\n';
+                        terminal.value += 'clear - Clear the terminal\n';
+                        terminal.value += 'exit - Exit the terminal\n';
+                        terminal.value += 'help - Show this help message\n';
+                        terminal.value += 'Any JavaScript Code\n';
+                        terminal.value += "woofwoofos@woofwoofos $ ";
+                        return;
+                    default:
+                        break;
+                }
+
+                try {
+                    let result = eval(command);
+                    terminal.value += '\n' + result + '\n';
+                } catch (error) {
+                    terminal.value += `\nError: ${error.message}\n`;
+                }
+
+                terminal.value += "woofwoofos@woofwoofos $ ";
+            }
+        });
+
+        function clear() {
+            document.getElementById('jsterminal').value = "woofwoofos@woofwoofos $ ";
+        }
+    </script>
+</body>
+</html>
