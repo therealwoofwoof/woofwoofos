@@ -5,5 +5,6 @@ Apps:
 * Terminal
 * Image Viewer
 * Media Player
+* Games
 
 
