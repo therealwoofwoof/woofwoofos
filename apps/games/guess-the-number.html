@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            background-color: #333;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guess the Number!</h1>
+    <p>Guess a Number between 1 and 100:</p>
+    <input type="number" id="woof"><br><br>
+    <button type="button" onclick="guess()">Guess the Number!</button>
+    <script>
+        let time = 0;
+        let waf = Math.floor(Math.random() * 100) + 1;
+
+        function guess() {
+            time++;
+            const woof = Number(document.getElementById("woof").value);
+
+            if (woof === waf) {
+                alert("Correct! You guessed the number in " + time + " try/tries. The number is reset.");
+                waf = Math.floor(Math.random() * 100) + 1;
+                console.log("Player guess was correct");
+            } else if (woof < waf) {
+                alert("Too low!");
+                console.log("Player guess was too low");
+            } else if (woof > waf) {
+                alert("Too high!");
+                console.log("Player guess was too high");
+            }
+        };
+    </script>
+</body>
+</html>

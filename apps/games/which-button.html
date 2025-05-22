@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+            color: white;
+            background-color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>Which Button?</h1>
+    <p>Click the correct button to win!</p>
+
+    <button>Button 1</button>
+    <button>Button 2</button>
+    <button>Button 3</button>
+    
+    <script>
+        const buttons = document.querySelectorAll('button');
+        const woof = document.getElementById('woof');
+        let correctButton = buttons[Math.floor(Math.random() * buttons.length)];
+        let streak = 0;
+
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                if (button === correctButton) {
+                    streak++;
+                    if (streak >= 2) {
+                        alert(`Correct button clicked! ${streak} in a row.`);
+                    } else {
+                        alert('Correct button clicked!');
+                    }
+                    console.log('Correct button was clicked');
+                    correctButton = buttons[Math.floor(Math.random() * buttons.length)];
+                } else {
+                    alert('Wrong Button! Try again!');
+                    console.log('Wrong button was clicked');
+                    streak = 0;
+                }
+            });
+        });
+    </script>
+</body>
+</html>
