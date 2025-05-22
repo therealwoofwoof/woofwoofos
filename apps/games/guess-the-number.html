@@ -26,6 +26,7 @@
             if (woof === waf) {
                 alert("Correct! You guessed the number in " + time + " try/tries. The number is reset.");
                 waf = Math.floor(Math.random() * 100) + 1;
+                time = 0;
                 console.log("Player guess was correct");
             } else if (woof < waf) {
                 alert("Too low!");
