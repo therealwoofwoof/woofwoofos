@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            background-color: #333;
+            text-align: center;
+        }
+
+        button {
+            padding: 10px 20px;
+            border-radius: 5px;
+            border: none;
+            background-color: lightblue;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Guess the Number!</h1>
+    <p>Guess a number! Select your difficulty level first.</p>
+    <label for="difficulty">Difficulty:</label>
+   <select id="difficulty">
+        <option value="Easy">Easy (1-100)</option>
+        <option value="Medium">Medium (1-500)</option>
+        <option value="Hard">Hard (1-1000)</option>
+    </select><br><br>
+    <input type="number" id="woof"><br><br>
+    <button type="button" onclick="guess()">Guess</button>
+    <script>
+        let tries = 0;
+        let waf = Math.floor(Math.random() * 100) + 1;
+
+        function guess() {
+            tries++;
+            const woof = Number(document.getElementById("woof").value);
+
+            if (woof === waf) {
+                if (tries === 1) {
+                    alert(`Correct! You guessed the number on your first try! The number has now changed.`);
+                } else {
+                alert(`Correct! You guessed the number in ${tries} tries! The number has now changed.`);
+            }
+                waf = Math.floor(Math.random() * 100) + 1;
+                tries = 0;
+                console.log("Player guess was correct");
+            } else if (woof < waf) {
+                alert("Too low!");
+                console.log("Player guess was too low");
+            } else if (woof > waf) {
+                alert("Too high!");
+                console.log("Player guess was too high");
+            }
+        };
+
+        // Difficulty
+        const difficultySelector = document.getElementById("difficulty");
+        difficultySelector.addEventListener("change", function() {
+            const difficulty = difficultySelector.value;
+
+            if (difficulty === "easy") {
+                waf = Math.floor(Math.random() * 100) + 1;
+            } else if (difficulty === "medium") {
+                waf = Math.floor(Math.random() * 500) + 1;
+            } else if (difficulty === "hard") {
+                waf = Math.floor(Math.random() * 1000) + 1;
+            }
+            tries = 0; 
+            alert(`Difficulty changed to ${difficulty}.`);
+            console.log(`Difficulty changed to ${difficulty}, New number generated: ${waf}`);
+        });
+    </script>
+</body>
+</html>

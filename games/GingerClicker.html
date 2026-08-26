@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Ginger Clicker</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            color: white;
+            background-color: #4f7043;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        #start-btn {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+
+        p {
+            font-size: 18px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>Ginger Clicker!</h1>
+    <p>Click the Ginger as many times as you can in 30 seconds!</p>
+    <button id="ginger-btn" disabled>
+        <img src="/IMG_0744.jpeg" width="300" height="230">
+    </button>
+    <button id="start-btn">Start</button>
+    <p id="status">Start the game.</p>
+    <p id="clicks">Clicks: 0</p>
+    <p id="record">Record: 0</p>
+    <p id="timeLeft">Time Remaining: 30 seconds</p>
+
+    <script>
+        const statusE = document.getElementById("status");
+        const gingerBtn = document.getElementById("ginger-btn");
+        const clicksE = document.getElementById("clicks");
+        const timeLeftE = document.getElementById("timeLeft");
+        const recordE = document.getElementById("record");
+        const startBtn = document.getElementById("start-btn");
+        let clicks = 0;
+        let time = 30;
+        let record = 0;
+
+
+        gingerBtn.addEventListener("click", () => {
+                    clicks++;
+                    clicksE.innerText = `Clicks: ${clicks}`;
+                });
+
+        startBtn.addEventListener("click", () => {
+
+            statusE.innerText = "Ready?";
+            setTimeout(() => {
+                statusE.innerText = "Go!"
+                gingerBtn.disabled = false;
+                startBtn.disabled = true;
+                timeLeftE.innerText = `Time Remaining: ${time} seconds`;
+
+                const timer = setInterval(() => {
+                    time--;
+                    timeLeftE.innerText = `Time Remaining: ${time} seconds`;
+                    if (time <= 0) {
+                        clearInterval(timer);
+                        gingerBtn.disabled = true;
+                        startBtn.disabled = false;
+                        statusE.innerText = "Time's up!";
+                        time = `30`;
+                        if (clicks > record) {
+                            record = clicks;
+                            recordE.innerText = `Record: ${record}`;
+                            statusE.innerText += " New Record!";
+                            
+                        }
+                        clicks = 0;
+                    }
+                }, 1000);
+            }, 1000)
+
+        })
+
+    </script>
+</body>
+</html>
