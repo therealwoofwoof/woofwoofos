@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WoofwoofOS</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-image: url('IMG_0744.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center center;
+            height: 100vh;
+        }
+
+        #taskbar {
+            display: flex;
+            background-color: #333;
+            color: white;
+            padding: 5px 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+            height: 35px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+            box-sizing: border-box;
+            z-index: 2;
+        }
+
+        #start-button {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            height: 100%;
+            width: 75px;
+        }
+
+        #start-button img {
+            width: 30px;
+            height: 30px;
+            margin-right: 5px;
+        }
+
+        .taskbar-app {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            height: 100%;
+            width: 35px;
+
+        }
+
+        .taskbar-app img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .taskbar-app:hover,
+        #start-button:hover {
+            background-color: #555;
+        }
+
+        #start-menu {
+            display: none;
+            position: absolute;
+            bottom: 36px;
+            left: 0;
+            background-color: #333;
+            color: white;
+            width: 200px;
+            box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.5);
+            z-index: 3;
+        }
+
+        .start-menu-item {
+            padding: 10px;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+
+        .start-menu-item img {
+            width: 30px;
+            height: 30px;
+            margin-right: 10px;
+        }
+
+        #window {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: calc(100% - 35px);
+            background-color: white;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+            display: none;
+            border: none;
+            z-index: 1;
+        }
+
+        #close-button {
+            position: absolute;
+            top: 5px;
+            right: 5px;
+            cursor: pointer;
+            font-weight: bold;
+            color: black;
+            background-color: darkslategray;
+            padding: 2px 5px;
+        }
+
+        #window-app {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        #window-bar {
+            height: 30px;
+            background-color: #333;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+    </style>
+</head>
+<body>
+    <div id="window">
+        <div id="window-bar">
+            <div id="close-button">X</div>
+        </div>
+        <iframe id="window-app" src="" sandbox="allow-scripts allow-popups allow-modals"></iframe>
+
+    </div>
+
+    <div id="taskbar">
+        <div id="start-button" onclick="startMenu()">
+            <img src="start-icon.png">
+            Start
+        </div>
+
+        <div class="taskbar-app">
+            <img src="apps/wafer-icon.png" onclick="woofed()">
+        </div>
+
+        <div class="taskbar-app">
+            <img src="apps/terminal-icon.png" onclick="openApp('apps/terminal.html')">
+        </div>
+
+        <div class="taskbar-app">
+            <img src="apps/game-launcher-icon.png" onclick="openApp('apps/game-launcher.html')">
+        </div>
+    </div>
+
+    <div id="start-menu">
+        <div class="start-menu-item" onclick="woofed()">
+            <img src="apps/wafer-icon.png">
+            Wafer
+        </div>
+        <div class="start-menu-item" onclick="openApp('apps/terminal.html')">
+            <img src="apps/terminal-icon.png">
+            Terminal
+        </div>
+        <div class="start-menu-item" onclick="openApp('apps/game-launcher.html')">
+            <img src="apps/game-launcher-icon.png">
+            Game Launcher
+    </div>
+
+    <script>
+        const windowWoof = document.getElementById('window');
+        const windowApp = document.getElementById('window-app');
+
+        function startMenu() {
+            const startMenu = document.getElementById('start-menu');
+            if (startMenu.style.display === 'block') {
+                startMenu.style.display = 'none';
+            } else {
+                startMenu.style.display = 'block';
+            }
+        }
+
+        function openApp(appUrl) {
+            windowWoof.style.display = 'block';
+            windowApp.src = appUrl;
+        }
+
+        document.getElementById('close-button').addEventListener('click', () => {
+            windowWoof.style.display = 'none';
+            windowApp.src = '';
+        });
+
+        function woofed() {
+            alert ("FLASHING LIGHTS WARNING! Close this tab if you have epilepsy or are sensitive to flashing lights. Do not press OK or Close on this dialog.");
+            new Audio('woofed.mp3').play();
+            document.body.innerHTML = "<h1 style='text-align: center;'>You got WOOFED! Enjoy.</h1>";
+            setTimeout(() => {
+                window.location.href = 'crash.html';
+            }, 35500);
+
+            document.body.style.backgroundImage = 'none';
+
+            setInterval(() => {
+                const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
+                const randomColor2 = '#' + Math.floor(Math.random()*16777215).toString(16);
+                document.body.style.color = randomColor;
+                document.body.style.backgroundColor = randomColor2;
+            }, 100);
+        }
+    </script>
+</body>
+</html>
