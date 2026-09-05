@@ -143,10 +143,6 @@
         </div>
 
         <div class="taskbar-app">
-            <img src="apps/wafer-icon.png" onclick="woofed()">
-        </div>
-
-        <div class="taskbar-app">
             <img src="apps/terminal-icon.png" onclick="openApp('apps/terminal.html')">
         </div>
 
@@ -156,10 +152,6 @@
     </div>
 
     <div id="start-menu">
-        <div class="start-menu-item" onclick="woofed()">
-            <img src="apps/wafer-icon.png">
-            Wafer
-        </div>
         <div class="start-menu-item" onclick="openApp('apps/terminal.html')">
             <img src="apps/terminal-icon.png">
             Terminal
@@ -192,23 +184,6 @@
             windowApp.src = '';
         });
 
-        function woofed() {
-            alert ("FLASHING LIGHTS WARNING! Close this tab if you have epilepsy or are sensitive to flashing lights. Do not press OK or Close on this dialog.");
-            new Audio('woofed.mp3').play();
-            document.body.innerHTML = "<h1 style='text-align: center;'>You got WOOFED! Enjoy.</h1>";
-            setTimeout(() => {
-                window.location.href = 'crash.html';
-            }, 28500);
-
-            document.body.style.backgroundImage = 'none';
-
-            setInterval(() => {
-                const randomColor = '#' + Math.floor(Math.random()*16777215).toString(16);
-                const randomColor2 = '#' + Math.floor(Math.random()*16777215).toString(16);
-                document.body.style.color = randomColor;
-                document.body.style.backgroundColor = randomColor2;
-            }, 100);
-        }
     </script>
 </body>
 </html>
