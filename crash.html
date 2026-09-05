@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>WoofwoofOS ERROR</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            width: 100vw;
+            background-color: black;
+            color: white;
+            font-family: monospace;
+            
+        }
+
+        #center-panic-box {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%); /* Shifts the center of the box to the center of the screen */
+            text-align: center;
+            width: 100%;
+        }
+
+        #center-panic-box h1 {
+            font-size: 50px;
+            margin: 0;
+        }
+
+        #center-panic-box p {
+            font-size: 25px;
+            margin: 0;
+        }
+
+        button {
+            font-size: 20px;
+            padding: 10px 20px;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id="mac-style-panic-box">
+        panic(cpu 0 caller 0xffffff800wo0f3rr: "WoofwoofOS Fatal Error; panic"@/woofwoofos/kernel/panic.c:42<br>
+        Backtrace: CPU 0, Frame : Return Address<br>
+        0xffffff8a7c9e3f2b1d : 0xffffff9b2d8e4c7a5f<br>
+        0xffffff7e1d9c3a4b8f : 0xffffff6a4b8e2c7d9f<br>
+        0xffffff9c8e2b7d4a1f : 0xffffff8d7a3c9e4b2f<br>
+        0xffffff6b4e9c7a2d8f : 0xffffff7a2d8e9c4b3f<br>
+        0xffffff8e3b7d9a4c2f : 0xffffff9a4c7e2b8d1f<br>
+        0xffffff7d2a9e4c8b3f : 0xffffff6c9b7e3a4d1f<br>
+        0xffffff9e4b8d2c7a1f : 0xffffff8b7a4c9e3d2f<br>
+        0xffffff6a3d9e7b4c2f : 0xffffff7c2b8e9a4d1f<br>
+        0xffffff8d7c9a2b4e1f : 0xffffff9b4e7d2c8a3f<br>
+        0xffffff7a2c9e4b8d3f : 0xffffff6e9b4d7a3c1f<br>
+        0xffffff9c7b4e2d8a1f : 0xffffff8a3d7e9b4c2f<br>
+        0xffffff6b9e4c7a2d3f : 0xffffff7d2c8e9a4b1f<br>
+        0xffffff8e2b9a4c7d1f : 0xffffff9a4d7c2b8e3f<br>
+        0xffffff7b4e9c2a8d3f : 0xffffff6c8e7d3a9b1f<br>
+        0xffffff9d7a4c2b8e1f : 0xffffff8b3e9c7a4d2f<br>
+        <br>
+        Process name corresponding to current thread: kernel_task<br>
+        WoofwoofOS version:<br>
+        Not yet set<br>
+        <br>
+        Kernel version:<br>
+        Woof Kernel Version 1.0.0: Sunday, July 26, 2026 10:43:00 CDT 2026; root:xnu-7195.81.3~1/RELEASE_ARM64_T6000<br>
+        Kernel UUID: 12345678-90AB-CDEF-1234-567890ABCDEF<br>
+        <br>
+        System model name: WoofwoofOS Browser Instance<br>
+        System uptime in nanoseconds: unknown<br>
+
+        panic: We are hanging here...
+    </div>
+
+    <div id="center-panic-box">
+    <h1>KERNEL PANIC!</h1>
+    <br>
+    <p>
+        WoofwoofOS has encountered a fatal error and cannot continue running.<br>
+        Please reboot WoofwoofOS.<br>
+        <button onclick="window.location.href = 'index.html'">Reboot</button>
+    </p>
+    </div>
+</body>
+</html>
